@@ -1,0 +1,6 @@
+# Modules to be included
+MODULES := blink
+
+MCU_TARGET := atmega8
+
+F_CPU      := 16000000

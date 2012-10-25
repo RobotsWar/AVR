@@ -1,0 +1,51 @@
+#!/bin/bash
+
+function usage {
+    echo "Usage: ./config <load|save|list> [config]"
+    exit
+}
+
+if [ $# -lt 1 ]; then
+    usage
+fi
+
+function configFile {
+    if [ "$1" == "local" ]; then
+        echo Makefile.config.local
+    else
+        echo configs/Makefile.config.$1
+    fi
+}
+
+FILE=`configFile $2`
+
+case $1 in
+    load)
+        if [ ! -e $FILE ]; then
+            echo "File does not exists: $FILE"
+            exit
+        fi
+
+        cp Makefile.config Makefile.config.local
+        cp $FILE Makefile.config        
+        echo "Loaded $2 config"
+        ;;
+    save)
+        if [ ! -e "Makefile.config" ]; then
+            echo "Makefile.config does not exists"
+            exit
+        fi
+
+        cp Makefile.config $FILE
+        echo "Saved $2 config"
+        ;;
+    list)
+        for config in configs/*; do
+            echo $config|sed -s 's/configs\/Makefile.config.//g'
+        done
+        ;;
+    *)
+        usage
+    ;;
+esac
+

@@ -1,0 +1,9 @@
+# Adjusting the PWM (output @50Hz) using an ADC 
+
+MODULES := adc uart util terminal terminal_main
+
+MCU_TARGET := atmega8
+
+F_CPU      := 16000000
+
+DEFS := -DBAUDRATE=115200
