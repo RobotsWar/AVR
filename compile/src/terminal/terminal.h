@@ -29,10 +29,10 @@ void terminal_register(const struct terminal_command *command);
 
 #define TERMINAL_COMMAND(name, description) terminal_command terminal_command_ ## name; \
     \
-    PROGMEM char terminal_command_name_ ## name [] = #name; \
-    PROGMEM char terminal_command_description_ ## name [] = description; \
+    PROGMEM const char terminal_command_name_ ## name [] = #name; \
+    PROGMEM const char terminal_command_description_ ## name [] = description; \
     \
-    PROGMEM struct terminal_command terminal_command_definition_ ## name = { \
+    PROGMEM const struct terminal_command terminal_command_definition_ ## name = { \
         123, terminal_command_name_ ## name , terminal_command_description_ ## name , terminal_command_ ## name \
     }; \
     \
