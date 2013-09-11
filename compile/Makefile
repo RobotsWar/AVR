@@ -64,7 +64,7 @@ sendi: erasei
 	avrdude -c avrisp2 -p $(MCU_TARGET) -P usb -U flash:w:build/flash.bin:r
 
 sendd:
-	./dynamixel/flash /dev/ttyUSB0 build/flash.bin
+	avrdude -c arduino -p $(MCU_TARGET) -b 19200 -P /dev/ttyUSB0 -U flash:w:build/flash.bin:r
 
 erasei:
 	avrdude -c avrisp2 -p $(MCU_TARGET) -P usb -e

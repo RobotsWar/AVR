@@ -466,6 +466,11 @@ void uart_init(unsigned int baudrate)
    stdout = &uartout ;
 }/* uart_init */
 
+unsigned char uart_available()
+{
+    return (UART_RxHead == UART_RxTail);
+}
+
 /*************************************************************************
 Function: uart_getc()
 Purpose:  return byte from ringbuffer  

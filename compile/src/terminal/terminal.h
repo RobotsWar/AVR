@@ -2,7 +2,7 @@
 #define _TERMINAL_H
 #include <avr/pgmspace.h>
 
-#define TERMINAL_BUFFER_SIZE 30
+#define TERMINAL_BUFFER_SIZE 50
 
 #define TERMINAL_MAX_COMMANDS 8
 

@@ -132,6 +132,7 @@ extern void uart_init(unsigned int baudrate);
  */
 extern unsigned int uart_getc(void);
 
+extern unsigned char uart_avaiable();
 
 /**
  *  @brief   Put byte to ringbuffer for transmitting via UART
